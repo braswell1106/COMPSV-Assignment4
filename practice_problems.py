@@ -13,11 +13,18 @@ Output: False
 """
 
 def has_duplicates(product_ids):
-    # Your implementation here
+    product_ids_sets = set(product_ids)
+    if len(product_ids) == len(product_ids_sets):
+        print("False")
+    else:
+        print("True")
+
     pass
 
-
+has_duplicates ([10, 20, 30, 20, 40])
+has_duplicates ([1, 2, 3, 4, 5])
 """
+
 Problem 2: Order Manager
 
 You need to maintain a list of tasks in the order they were added, and support removing tasks from the front.
@@ -32,18 +39,27 @@ task_queue.remove_oldest_task() → "Email follow-up"
 
 class TaskQueue:
     def __init__(self):
-        # Your initialization here
+        self.items = []
         pass
 
     def add_task(self, task):
+        self.items.append(task)
         pass
 
     def remove_oldest_task(self):
+        self.items.pop(0)
         pass
 
 
+task_queue = TaskQueue()
+task_queue.add_task("Email follow-up")
+task_queue.add_task("Code review")
+task_queue.remove_oldest_task()
+
+print(task_queue.items)
+
 """
-Problem 3: Unique Value Counter
+3Problem 3: Unique Value Counter
 
 You receive a stream of integer values. At any point, you should be able to return the number of unique values seen so far.
 
